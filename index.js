@@ -1,4 +1,3 @@
-require("dotenv").config();
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
@@ -6,7 +5,7 @@ const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-client.login(process.env.BOTTOKEN);
+client.login(OTE3NTUxMDMzOTczMDgwMTM0.Ya6V_Q.zPmFfMZDe4y5RPWiDbAe-vS6VDQ);
 
 client.on('ready', readyDiscord);
 
