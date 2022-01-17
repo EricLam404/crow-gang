@@ -16,7 +16,7 @@ function readyDiscord(){
 
 client.on('messageCreate', gotMessage);
 
-cron.schedule('0 0 16 * * 3,5,7', () => {
+cron.schedule('0 40 17 * * *', () => {
   var channel = client.channels.cache.get("913599272094666752")
   channel.send("<@&913601123326230578>");
   console.log('SENTING');
