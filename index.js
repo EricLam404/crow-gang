@@ -3,6 +3,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
+var cron = require('node-cron');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 client.login("OTE3NTUxMDMzOTczMDgwMTM0.Ya6V_Q.zPmFfMZDe4y5RPWiDbAe-vS6VDQ");
@@ -15,6 +16,11 @@ function readyDiscord(){
 
 client.on('messageCreate', gotMessage);
 
+cron.schedule('0 0 16 * * 3,5,7', () => {
+  var channel = client.channels.cache.get("913599272094666752")
+  channel.send("<@&913601123326230578>");
+  console.log('SENTING');
+});
 async function gotMessage(msg){
   if(msg.content === '!club'){
     let club = {

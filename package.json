@@ -10,8 +10,11 @@
   "author": "Eric Lam",
   "license": "ISC",
   "dependencies": {
+    "cron": "^1.8.2",
     "discord.js": "^13.5.0",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.1.6",
+    "node-cron": "^3.0.0"
   },
   "engines": {
     "node": 16.6
