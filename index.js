@@ -18,7 +18,7 @@ client.on('messageCreate', gotMessage);
 
 cron.schedule('0 0 21 * * 3,5,7', () => {
   var channel = client.channels.cache.get("913599272094666752")
-  channel.send("TEST");
+  channel.send("<@&913601123326230578>" + " Time for Club League! :D");
   console.log('SENT');
 });
 async function gotMessage(msg){
