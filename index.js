@@ -16,11 +16,11 @@ function readyDiscord(){
 
 client.on('messageCreate', gotMessage);
 
-cron.schedule('0 47 17 * * *', () => {
-  console.log('SENDER')
+cron.schedule('0 16 18 * * *', () => {
+  console.log('S')
   var channel = client.channels.cache.get("913599272094666752")
-  channel.send("<@&913601123326230578>" + "Time for Club League! :D");
-  console.log('SEN');
+  channel.send("TEST");
+  console.log('SENT');
 });
 async function gotMessage(msg){
   if(msg.content === '!club'){
