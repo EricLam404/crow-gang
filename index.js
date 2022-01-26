@@ -11,7 +11,7 @@ function readyDiscord(){
   console.log("Online")
 }
 
-const commandHandler = require('./commands')
+const commandHandler = require('./deployCommands')
 client.on('messageCreate', commandHandler);
 
 cron.schedule('0 0 21 * * 3,5,7', () => {
