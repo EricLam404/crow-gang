@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
 var cron = require('node-cron');
-import os;
 
-const token = os.environ.get('BOTTOKEN')
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+
+let token = process.env.BOTTOKEN;
 client.login(token);
 
 client.on('ready', readyDiscord);
