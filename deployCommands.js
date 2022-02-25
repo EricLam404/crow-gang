@@ -1,16 +1,31 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const Discord = require('discord.js');
+const Schema = require("./Models/GuildConfig");
 
 const club = require('./commands/club.js');
+const prefix = require('./commands/prefix.js');
 
-const commands = { club };
+const commands = { club, prefix };
 
 module.exports = async function (msg){
+  const guildConfig = await Schema.findOne({ GuildId: msg.guildId });
+  let prefix = "!";
+
+  if(guildConfig && guildConfig?.Prefix){
+    prefix = guildConfig?.Prefix;
+  }
+
   let tokens = msg.content.split(" ");
   let command = tokens.shift();
-  if (command.charAt(0) === "!") {
+
+  if (command.charAt(0) === prefix) {
     command = command.substring(1);
-    commands[command](msg, tokens);
+    if(command === "prefix"){
+      commands[command](msg, tokens, prefix);
+    }
+    else{
+      commands[command](msg, tokens);
+    }
   }
 
 /*
