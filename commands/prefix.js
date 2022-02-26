@@ -4,6 +4,7 @@ const Schema = require("../Models/GuildConfig")
 const embed = new MessageEmbed().setColor("WHITE");
 
 module.exports = async function (msg, args, PREFIX){
+  if(msg.roles.cache.has('689890832228417622')){
     if(!args.length) {
       const guildConfig = await Schema.findOne({ GuildId: msg.guildId });
 
@@ -30,4 +31,9 @@ module.exports = async function (msg, args, PREFIX){
       embed.setDescription('Prefix set to : ' + newPrefix);
       return await msg.channel.send({embeds: [embed]});
     }
+  }
+  else{"
+    embed.setDescription("Sorry you dont have permissions to change the prefix");
+    return await msg.channel.send({embeds: [embed]});
+  }
 }
