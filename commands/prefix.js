@@ -32,7 +32,7 @@ module.exports = async function (msg, args, PREFIX){
       return await msg.channel.send({embeds: [embed]});
     }
   }
-  else{"
+  else{
     embed.setDescription("Sorry you dont have permissions to change the prefix");
     return await msg.channel.send({embeds: [embed]});
   }
