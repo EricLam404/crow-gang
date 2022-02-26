@@ -5,7 +5,7 @@ const embed = new MessageEmbed().setColor("WHITE");
 
 module.exports = async function (msg, args, PREFIX){
   let admin = 689890832228417622;
-  if(!msg.guild.roles.cache.find(r => r.id === admin);){
+  if(!msg.guild.roles.cache.find(r => r.id === admin)){
     if(!args.length) {
       const guildConfig = await Schema.findOne({ GuildId: msg.guildId });
 
