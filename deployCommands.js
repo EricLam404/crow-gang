@@ -23,13 +23,15 @@ module.exports = async function (msg){
 
   if (command.charAt(0) === prefix) {
     command = command.substring(1);
-    if(commands[command]msg, tokens) === null ){
-    }
-    else if(command === "prefix"){
-      commands[command](msg, tokens, prefix);
-    }
-    else{
-      commands[command](msg, tokens);
+    try {
+      if(command === "prefix"){
+        commands[command](msg, tokens, prefix);
+      }
+      else{
+        commands[command](msg, tokens);
+      }
+    } catch (error) {
+      console.log('Database Failed to Connect: ', error);
     }
   }
 
