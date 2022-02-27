@@ -23,7 +23,9 @@ module.exports = async function (msg){
 
   if (command.charAt(0) === prefix) {
     command = command.substring(1);
-    if(command === "prefix"){
+    if(commands[command] === null ){
+    }
+    else if(command === "prefix"){
       commands[command](msg, tokens, prefix);
     }
     else{
