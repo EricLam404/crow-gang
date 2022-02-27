@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoEconomy = require("discord-mongo-economy");
 
 module.exports = async () => {
   try {

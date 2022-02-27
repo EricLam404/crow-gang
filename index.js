@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
-var cron = require('node-cron');
+const cron = require('node-cron');
+const mongoEconomy = require("discord-mongo-economy");
+
 require("./dbLogin")();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -27,13 +29,3 @@ cron.schedule('0 0 20 * * 1,4,6', () => {
   channel.send("<@&913601123326230578>" + " 1 hour left in club league!");
   console.log('SENT');
 });
-/*
-const guildStats = stats[msg.guild.id];
-  if(msg.author.id in guildStats == false){
-    guildStats[msg.author.id] = {
-      coins: 0,
-      bal: 0,
-      last_daily: 0
-    };
-  }
-*/
