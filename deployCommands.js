@@ -4,8 +4,9 @@ const Schema = require("./Models/GuildConfig");
 
 const club = require('./commands/club.js');
 const prefix = require('./commands/prefix.js');
+const daily = require('./commands/daily.js');
 
-const commands = { club, prefix };
+const commands = { club, prefix, daily };
 
 module.exports = async function (msg){
   const guildConfig = await Schema.findOne({ GuildId: msg.guildId });

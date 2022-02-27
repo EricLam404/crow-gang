@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
 var cron = require('node-cron');
+require("./dbLogin")();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
@@ -15,11 +16,6 @@ function readyDiscord(){
 const commandHandler = require('./deployCommands')
 client.on('messageCreate', commandHandler);
 
-require("./dbLogin")();
-/*
-const mongoLogin = require('./dbLogin')
-client.on('ready', mongoLogin);
-*/
 cron.schedule('0 0 21 * * 3,5,7', () => {
   var channel = client.channels.cache.get("913599272094666752")
   channel.send("<@&913601123326230578>" + " Time for Club League! :D");
@@ -31,3 +27,13 @@ cron.schedule('0 0 20 * * 1,4,6', () => {
   channel.send("<@&913601123326230578>" + " 1 hour left in club league!");
   console.log('SENT');
 });
+/*
+const guildStats = stats[msg.guild.id];
+  if(msg.author.id in guildStats == false){
+    guildStats[msg.author.id] = {
+      coins: 0,
+      bal: 0,
+      last_daily: 0
+    };
+  }
+*/

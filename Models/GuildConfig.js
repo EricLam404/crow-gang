@@ -12,4 +12,4 @@ const PrefixSchema = new Schema({
   }
 })
 
-module.exports = model("guildConfigs", PrefixSchema)
+module.exports = model("guildConfigs", PrefixSchema);
