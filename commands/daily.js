@@ -6,13 +6,13 @@ const embed = new MessageEmbed().setColor("WHITE");
 module.exports = async function (msg, args){
   let money = Math.floor(Math.random() * 30000) + 1;
   let guildId = msg.guildId;
-  let memberId = msg.memberId;
+  let memberId = msg.author.id;
 
   let member = await MemberData.findOne({
     memberID: memberId,
     guildID: guildId
   });
-
+  console.log(member)
   if(!member) {
     let newUser = new MemberData({
       memberID: memberId,

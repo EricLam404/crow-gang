@@ -31,7 +31,7 @@ module.exports = async function (msg){
         commands[command](msg, tokens);
       }
     } catch (error) {
-      console.log('Database Failed to Connect: ', error);
+      console.log(error);
     }
   }
 

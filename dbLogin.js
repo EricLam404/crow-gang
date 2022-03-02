@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const mongoEconomy = require("discord-mongo-economy");
 
+require("dotenv").config();
+
 module.exports = async () => {
   try {
     let connect = process.env.dbToken;

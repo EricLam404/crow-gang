@@ -4,6 +4,7 @@ const cron = require('node-cron');
 const mongoEconomy = require("discord-mongo-economy");
 
 require("./dbLogin")();
+require("dotenv").config();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
