@@ -5,7 +5,7 @@ const embed = new MessageEmbed().setColor("WHITE");
 
 module.exports = async function (msg, args){
   let guildId = msg.guildId;
-  let memberId = msg.memberId;
+  let memberId = msg.author.id;;
   let member = await MemberData.findOne({
     memberID: memberId,
     guildID: guildId
