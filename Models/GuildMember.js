@@ -28,6 +28,10 @@ const guildMember = new Schema({
     lastDaily: {
         type: Number,
         default: null,
+    },
+    lastWeekly: {
+        type: Number,
+        default: null,
     }
 });
 
