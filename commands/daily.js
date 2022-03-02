@@ -12,7 +12,6 @@ module.exports = async function (msg, args){
     memberID: memberId,
     guildID: guildId
   });
-  console.log(member)
   if(!member) {
     let newUser = new MemberData({
       memberID: memberId,
