@@ -4,8 +4,11 @@ const MemberData = require("../Models/GuildMember");
 const embed = new MessageEmbed().setColor("WHITE");
 
 module.exports = async function (msg, args){
+  let tokens = msg.content.split(" ");
+
   let guildId = msg.guildId;
-  let memberId = msg.author.id;;
+  let memberId = msg.mentions.members.first()?.user.id ?? msg.author.id;
+
   let member = await MemberData.findOne({
     memberID: memberId,
     guildID: guildId
@@ -18,9 +21,16 @@ module.exports = async function (msg, args){
     })
   }
   if(member.money === null){
-    embed.setDescription("You have **0** Crow Coins in your wallet");
+    embed.setTitle("Wallet");
+    embed.setDescription(msg.author.username + ": \n**0** Crow Coins");
     return await msg.channel.send({embeds: [embed]});
   }
-  embed.setDescription("You have **" + member.money + "** Crow Coins in your wallet");
+  if (msg.mentions.members.first()){
+    embed.setTitle("Wallet");
+    embed.setDescription(msg.mentions.members.first().user.username + ": \n**" + member.money + "** Crow Coins");
+    return await msg.channel.send({embeds: [embed]});
+  }
+  embed.setTitle("Wallet");
+  embed.setDescription(msg.author.username + ": \n**" + member.money + "** Crow Coins");
   return await msg.channel.send({embeds: [embed]});
 }
